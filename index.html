@@ -7,6 +7,7 @@
     <title>Muhammad Umer - Senior SQA Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -23,15 +24,26 @@
 
         [data-theme="light"] {
             --bg-color: #f8f9fa;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --text-color: #333333;
-            --accent-color: #0078D7;
-            --accent-light: #4dabf5;
-            --accent-dark: #005bb5;
-            --accent-glow: 0 0 10px rgba(0, 120, 215, 0.2);
-            --secondary-text: #666666;
-            --glass-border: rgba(0, 0, 0, 0.15);
-            --glass-highlight: rgba(0, 0, 0, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.97);
+            --text-color: #2d3748;
+            --accent-color: #3182ce;
+            --accent-light: #63b3ed;
+            --accent-dark: #2c5282;
+            --accent-glow: 0 0 8px rgba(49, 130, 206, 0.15);
+            --secondary-text: #4a5568;
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-highlight: rgba(0, 0, 0, 0.03);
+        }
+
+        /* Additional light-mode specific enhancements */
+        [data-theme="light"] .hero::before {
+            background: radial-gradient(circle, rgba(49, 130, 206, 0.08) 0%, transparent 70%);
+        }
+
+        [data-theme="light"] .job-title span {
+            background: rgba(49, 130, 206, 0.08);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-dark);
         }
 
         * {
@@ -200,10 +212,54 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+            background: linear-gradient(90deg, var(--accent-dark), var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero .intro-text {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            height: 3rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero .intro-text .typewriter {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero .intro-text .typewriter::after {
+            content: '|';
+            position: absolute;
+            right: 0;
+            animation: blink 0.7s infinite;
+            color: var(--accent-color);
+            display: none
+        }
+
+        .hero .intro-text .cursor {
+            display: inline-block;
+            position: relative;
+            color: var(--accent-color);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero p {
@@ -246,7 +302,7 @@
             display: inline-block;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            background: rgba(0, 188, 212, 0.1);
+            background: rgba(49, 130, 206, 0.1);
             border: 2px solid var(--accent-color);
             color: var(--accent-color);
             font-size: 1.2rem;
@@ -493,7 +549,6 @@
         }
 
         .card i {
-
             background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
             -webkit-background-clip: text;
             background-clip: text;
@@ -532,6 +587,10 @@
                 font-size: 2.5rem;
             }
 
+            .hero .intro-text {
+                font-size: 1.5rem;
+            }
+
             .hero p {
                 font-size: 1.1rem;
             }
@@ -562,10 +621,6 @@
                 0 0 15px var(--accent-glow),
                 inset 0 0 15px var(--glass-highlight);
         }
-
-
-
-
 
         /* Pulse animation for job title */
         .job-title span {
@@ -608,6 +663,44 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-light);
         }
+
+        /* Skills Section */
+        #skills .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            min-height: 150px;
+            transition: all 0.3s ease;
+        }
+
+        #skills .card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        #skills .card p {
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        #skills .card:hover {
+            transform: translateY(-5px);
+        }
+
+        #skills .card:hover i {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -616,7 +709,7 @@
     <nav>
         <div class="logo">Muhammad Umer</div>
         <ul>
-            <li><a href="#summary">Summary</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -632,13 +725,15 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>Muhammad Umer</h1>
+        <div class="intro-text">
+            <div class="typewriter"> | </div>
+        </div>
         <div class="job-title">
             <span>Senior Software Quality Assurance Engineer</span>
         </div>
-        Ensuring digital excellence through rigorous testing and quality assurance.
-        </p>
+        <p>Ensuring digital excellence through rigorous testing and quality assurance.</p>
         <div class="social-links">
             <a href="mailto:umar72150@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/muhammad-umer-472902202" target="_blank" aria-label="LinkedIn"><i
@@ -650,15 +745,31 @@
         </div>
     </section>
 
-    <!-- Summary Section -->
-    <section id="summary">
-        <h2>Summary</h2>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
         <div class="card">
-            <p>Quality Assurance Professional with over 4 years of experience specializing in PKI solutions and test
-                automation. Skilled in ensuring software quality, enhancing product reliability, and implementing
-                efficient automated testing frameworks. Eager to join a forward-thinking organization to apply security
-                testing and automation skills, driving continuous improvement and delivering high-quality, secure
-                software solutions.</p>
+            <p>Quality Assurance Professional with a proven track record of over 4+ years, specializing in PKI (Public
+                Key Infrastructure) solutions and test automation. My experience spans ensuring software quality,
+                enhancing product reliability, and implementing efficient automated testing frameworks.</p>
+
+            <p>I am eager to join a forward-thinking organization where I can apply my specialized skills in security
+                testing and automation, drive continuous improvement, and play a pivotal role in delivering
+                high-quality, secure software solutions.</p>
+
+            <p>My key strengths include:</p>
+            <ul>
+                <li><strong>Quality Assurance:</strong> Proficient in designing and implementing robust quality
+                    assurance processes to ensure the delivery of high-quality software products.</li>
+                <li><strong>Organizational Skills:</strong> Strong organizational abilities demonstrated through
+                    effective project management and coordination.</li>
+                <li><strong>Problem Solving:</strong> Demonstrated problem-solving skills in identifying, analyzing, and
+                    resolving issues within the software development lifecycle.</li>
+                <li><strong>Adaptability:</strong> Quick to learn new technologies and methodologies, with a
+                    demonstrated history of successfully adapting to changing project requirements.</li>
+                <li><strong>Collaboration:</strong> Strong collaborator with developers and support teams to ensure
+                    seamless product delivery.</li>
+            </ul>
         </div>
     </section>
 
@@ -723,6 +834,16 @@
                 <h3>Outdone.io</h3>
                 <p>Validated AI-driven product recommendations through interactive questioning.</p>
             </div>
+            <div class="card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Scottish Health</h3>
+                <p>Mobile application for the Scottish Government's health services. Conducted comprehensive testing of
+                    health assessment features and user workflows.</p>
+                <a href="https://apps.apple.com/pk/app/scottish-health/id1387163430" target="_blank"
+                    class="btn btn-outline" style="margin-top: 1rem;">
+                    <i class="fas fa-external-link-alt"></i> View App
+                </a>
+            </div>
         </div>
     </section>
 
@@ -733,19 +854,19 @@
             <div class="card"><i class="fab fa-js"></i>
                 <p>Cypress</p>
             </div>
-            <div class="card"><i class="fas fa-bug"></i>
+            <div class="card"><i class="fas fa-robot"></i>
                 <p>Automated Testing</p>
             </div>
             <div class="card"><i class="fab fa-jira"></i>
                 <p>Jira</p>
             </div>
-            <div class="card"><i class="fas fa-vial"></i>
+            <div class="card"><i class="fas fa-hand-paper"></i>
                 <p>Manual Testing</p>
             </div>
             <div class="card"><i class="fas fa-cubes"></i>
                 <p>Microservices</p>
             </div>
-            <div class="card"><i class="fas fa-mail-bulk"></i>
+            <div class="card"><i class="fas fa-code"></i>
                 <p>Postman</p>
             </div>
             <div class="card"><i class="fas fa-tachometer-alt"></i>
@@ -821,6 +942,27 @@
             // Set initial theme toggle icon
             const themeIcon = document.querySelector('.theme-toggle i');
             themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+            // Typewriter effect
+            // Typewriter effect
+            const typewriterText = "Hi, I'm Muhammad Umer ";
+            const typewriterElement = document.querySelector('.typewriter');
+            let i = 0;
+
+            function typeWriter() {
+                if (i < typewriterText.length) {
+                    typewriterElement.innerHTML = typewriterText.substring(0, i + 1) + '<span class="cursor">|</span>';
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    // Remove cursor after typing is complete
+                    typewriterElement.innerHTML = typewriterText;
+                    typewriterElement.classList.remove('cursor'); // Remove cursor class
+                }
+            }
+
+            // Start typing after a brief delay
+            setTimeout(typeWriter, 500);
         };
 
         // Smooth Scroll
